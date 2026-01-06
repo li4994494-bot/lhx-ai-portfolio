@@ -15,12 +15,11 @@ const App: React.FC = () => {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
 
-  // 模拟异步数据加载，营造 iOS 原生应用的启动感
   useEffect(() => {
     const timer = setTimeout(() => {
       setItems(initialProjects);
       setIsLoading(false);
-    }, 1000);
+    }, 800);
     return () => clearTimeout(timer);
   }, []);
 
@@ -43,17 +42,15 @@ const App: React.FC = () => {
   }, []);
 
   const handleProjectAction = (project: Project) => {
-    // 处理交互型项目（如在线 Demo）
     if (project.type === 'interactive') {
       if (project.demoUrl && project.demoUrl !== '#') {
         window.open(project.demoUrl, '_blank');
       } else {
-        showToast('交互功能正在全力开发中');
+        showToast('功能正在全力开发中');
       }
       return;
     }
     
-    // 处理静态项目（展示分享链接）
     if (project.geminiShareUrl === '#' || !project.geminiShareUrl) {
       showToast('该项目暂未开放分享');
       return;
@@ -63,8 +60,8 @@ const App: React.FC = () => {
   };
 
   return (
-    <div className="relative min-h-screen bg-[#FBFBFD] selection:bg-[#0071e3]/10 selection:text-[#0071e3]">
-      {/* iOS 风格半透明导航栏 */}
+    <div className="relative min-h-screen bg-[#FBFBFD] selection:bg-apple-blue/10 selection:text-apple-blue">
+      {/* 顶栏导航 */}
       <nav className="fixed top-0 left-0 w-full glass z-40 border-b border-black/5">
         <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
           <motion.div 
@@ -79,14 +76,14 @@ const App: React.FC = () => {
                 className="w-full h-full object-cover rounded-[10px]"
               />
             </div>
-            <span className="font-semibold text-lg tracking-tight text-[#1d1d1f]">lhx.AI</span>
+            <span className="font-semibold text-lg tracking-tight text-apple-dark">lhx.AI</span>
           </motion.div>
           
-          <div className="hidden sm:flex gap-8 items-center">
-             <a href="#projects" className="text-sm text-[#86868b] hover:text-[#1d1d1f] transition-colors font-medium">我的作品</a>
+          <div className="hidden sm:flex gap-8 items-center text-sm font-medium">
+             <a href="#projects" className="text-apple-gray hover:text-apple-dark transition-colors">我的作品</a>
              <div className="w-px h-4 bg-black/10"></div>
-             <div className="text-[10px] font-bold text-[#0071e3] bg-[#0071e3]/5 px-2.5 py-1 rounded-full uppercase tracking-widest border border-[#0071e3]/10">
-               V2.0 PRO
+             <div className="text-[10px] font-bold text-apple-blue bg-apple-blue/5 px-3 py-1 rounded-full uppercase tracking-widest border border-apple-blue/10">
+               PRO VERSION
              </div>
           </div>
         </div>
@@ -94,14 +91,14 @@ const App: React.FC = () => {
 
       <Hero />
 
-      {/* 作品网格展示区 */}
+      {/* 作品网格 */}
       <section id="projects" className="max-w-7xl mx-auto px-6 py-32">
         <div className="mb-24">
           <motion.h2 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-4xl md:text-5xl font-semibold tracking-tight text-[#1d1d1f] mb-6"
+            className="text-4xl md:text-5xl font-semibold tracking-tight text-apple-dark mb-6"
           >
             AI 项目集锦
           </motion.h2>
@@ -110,17 +107,16 @@ const App: React.FC = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="text-[#86868b] text-xl font-light max-w-3xl leading-relaxed"
+            className="text-apple-gray text-xl font-light max-w-2xl leading-relaxed"
           >
-            追求卓越的 AI 交互体验。
+            探索 AI 与人类交互的无限可能，打造更直观的智能工具。
           </motion.p>
         </div>
 
-        {/* 布局：每行 2 列 (md:grid-cols-2) */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-20">
           {isLoading ? (
-            Array.from({ length: 6 }).map((_, i) => (
-              <div key={i} className="h-[580px] rounded-[48px] bg-white/50 border border-black/5 animate-pulse" />
+            Array.from({ length: 4 }).map((_, i) => (
+              <div key={i} className="aspect-[4/3] rounded-[48px] bg-white border border-black/5 animate-pulse" />
             ))
           ) : (
             <AnimatePresence mode="popLayout">
@@ -131,7 +127,7 @@ const App: React.FC = () => {
                   initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
-                  transition={{ delay: index * 0.1, duration: 0.7, ease: [0.23, 1, 0.32, 1] }}
+                  transition={{ delay: index * 0.1, duration: 0.8 }}
                 >
                   <ProjectCard 
                     project={project}
@@ -146,21 +142,21 @@ const App: React.FC = () => {
         </div>
       </section>
 
-      {/* 极简页脚 */}
-      <footer className="py-32 border-t border-black/5 bg-white/30">
-        <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-12">
-          <div className="text-center md:text-left">
-             <div className="text-2xl font-bold mb-3 tracking-tighter">lhx.AI</div>
-             <p className="text-[#86868b] text-sm font-light">追求简洁，定义未来。用 AI 创造价值。</p>
+      {/* 页脚 */}
+      <footer className="py-24 border-t border-black/5 bg-white/50">
+        <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-12 text-center md:text-left">
+          <div>
+             <div className="text-2xl font-bold mb-3 tracking-tighter text-apple-dark">lhx.AI</div>
+             <p className="text-apple-gray text-sm font-light italic">"追求极致简洁，定义未来体验。"</p>
           </div>
-          <div className="flex gap-10 text-sm font-medium text-[#86868b]">
-            <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="hover:text-[#0071e3] transition-colors">GitHub</a>
-            <a href="#" className="hover:text-[#0071e3] transition-colors">Twitter</a>
-            <a href="mailto:contact@lhx.ai" className="hover:text-[#0071e3] transition-colors">Contact</a>
+          <div className="flex gap-10 text-sm font-medium text-apple-gray">
+            <a href="#" className="hover:text-apple-blue transition-colors">GitHub</a>
+            <a href="#" className="hover:text-apple-blue transition-colors">Twitter</a>
+            <a href="#" className="hover:text-apple-blue transition-colors">Contact</a>
           </div>
         </div>
-        <div className="text-center mt-20 text-[10px] text-[#86868b]/40 uppercase tracking-[0.3em]">
-          Design by lhx &bull; Built with Gemini 2.5
+        <div className="text-center mt-20 text-[10px] text-apple-gray/30 uppercase tracking-[0.4em] font-medium">
+          &copy; 2025 LHX &bull; DESIGNED FOR THE FUTURE
         </div>
       </footer>
 

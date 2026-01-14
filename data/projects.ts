@@ -13,7 +13,7 @@ export const projects: Project[] = [
   },
   {
     id: '2',
-    name: 'DocuGenius AI',
+    name: 'video-analyzer',
     tagline: '深度洞察。基于 Gemini 1.5 Pro 的长文档智能摘要工具，瞬间提取复杂 PDF 的核心逻辑。',
     coverImage: 'https://images.unsplash.com/photo-1512486130939-2c4f79935e4f?auto=format&fit=crop&q=80&w=800&h=600',
     promptText: 'Summarize the following technical document into 3 key bullet points...',
@@ -53,12 +53,12 @@ export const projects: Project[] = [
   },
   {
     id: '6',
-    name: '未来实验室',
-    tagline: '未定义即无限。这里将承载更多前沿的 AI 交互实验，敬请期待。',
+    name: 'video-analyzer',
+    tagline: '视频丢帧检测',
     coverImage: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=800&h=600',
     promptText: 'Future interactive app prompt...',
     githubUrl: '#',
     geminiShareUrl: '#',
-    type: 'interactive'
+    type: 'video-analyzer'
   }
 ];

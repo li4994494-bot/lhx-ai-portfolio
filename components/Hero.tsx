@@ -39,7 +39,7 @@ const Hero: React.FC = () => {
             transition={{ delay: 0.4, duration: 1 }}
             className="text-3xl md:text-5xl font-medium leading-[1.4] text-[#1d1d1f] tracking-tight"
           >
-            Hi there，我是 <span className="text-apple-blue">lhx</span>。很开心能和你分享我用 AI 做的小工具，希望可以帮助到你。
+            Hi there，我是 <span className="text-apple-blue">lhx</span>。很开心能和你分享我做的小工具，希望可以帮助到你。
           </motion.h1>
           <motion.p 
             initial={{ opacity: 0 }}

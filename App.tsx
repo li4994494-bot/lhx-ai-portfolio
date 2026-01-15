@@ -145,7 +145,7 @@ const App: React.FC = () => {
                   viewport={{ once: true }}
                   className="text-4xl md:text-5xl font-semibold tracking-tight text-apple-dark mb-6"
                 >
-                  AI 项目集锦
+                  AI 工具
                 </motion.h2>
                 <motion.p
                   initial={{ opacity: 0, y: 20 }}

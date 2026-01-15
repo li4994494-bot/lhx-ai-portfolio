@@ -2,23 +2,23 @@ import { Project } from '../types';
 
 export const projects: Project[] = [
   {
-    id: 'prompt-generator',
-    name: 'Gemini Prompt 生成器',
-    tagline: 'Senior AI 提效工具。上传产品录屏或截图，由 Gemini 自动识别核心逻辑、过滤干扰噪音并生成专业的系统提示词。',
-    coverImage: 'https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80&w=800&h=600',
-    promptText: 'You are an expert AI Prompt Engineer specialized in UI-to-Code generation...',
-    githubUrl: 'https://github.com/lhx/gemini-prompt-gen',
-    geminiShareUrl: 'https://aistudio.google.com/app/prompts/example-1',
-    type: 'interactive'
+    id: '1',
+    name: 'video-analyzer',
+    tagline: '视频丢帧检测',
+    coverImage: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=800&h=600',
+    promptText: 'Future interactive app prompt...',
+    githubUrl: '#',
+    geminiShareUrl: '#',
+    type: 'video-analyzer'
   },
   {
     id: '2',
-    name: 'video-analyzer',
-    tagline: '深度洞察。基于 Gemini 1.5 Pro 的长文档智能摘要工具，瞬间提取复杂 PDF 的核心逻辑。',
-    coverImage: 'https://images.unsplash.com/photo-1512486130939-2c4f79935e4f?auto=format&fit=crop&q=80&w=800&h=600',
-    promptText: 'Summarize the following technical document into 3 key bullet points...',
-    githubUrl: 'https://github.com/lhx/doc-summarizer',
-    geminiShareUrl: 'https://aistudio.google.com/app/prompts/example-2',
+    name: 'other',
+    tagline: '视频丢帧检测',
+    coverImage: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=800&h=600',
+    promptText: 'Future interactive app prompt...',
+    githubUrl: '#',
+    geminiShareUrl: '#',
     type: 'static'
   },
   {
@@ -52,13 +52,16 @@ export const projects: Project[] = [
     type: 'static'
   },
   {
-    id: '6',
-    name: 'video-analyzer',
-    tagline: '视频丢帧检测',
-    coverImage: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=800&h=600',
-    promptText: 'Future interactive app prompt...',
-    githubUrl: '#',
-    geminiShareUrl: '#',
-    type: 'video-analyzer'
+    id: 'prompt-generator',
+    name: 'Gemini Prompt 生成器',
+    tagline: 'Senior AI 提效工具。上传产品录屏或截图，由 Gemini 自动识别核心逻辑、过滤干扰噪音并生成专业的系统提示词。',
+    coverImage: 'https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80&w=800&h=600',
+    promptText: 'You are an expert AI Prompt Engineer specialized in UI-to-Code generation...',
+    githubUrl: 'https://github.com/lhx/gemini-prompt-gen',
+    geminiShareUrl: 'https://aistudio.google.com/app/prompts/example-1',
+    type: 'interactive'
   }
 ];
+
+
+

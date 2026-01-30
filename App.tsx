@@ -5,6 +5,7 @@ import Toast from './components/Toast';
 import Modal from './components/Modal';
 import PromptGenerator from './components/PromptGenerator/PromptGenerator';
 import VideoAnalyzer from './components/VideoAnalyzer';   // ✅ 新增
+import OBSController from './components/OBSController';   // ✅ 新增
 import { projects as initialProjects } from './data/projects';
 import { Project, ViewMode } from './types';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -20,6 +21,9 @@ const App: React.FC = () => {
 
   /* ---------- 丢帧检测独立状态 ---------- */
   const [isAnalyzerOpen, setIsAnalyzerOpen] = useState(false);
+  
+  /* ---------- OBS控制器独立状态 ---------- */
+  const [isOBSControllerOpen, setIsOBSControllerOpen] = useState(false);
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -54,7 +58,12 @@ const App: React.FC = () => {
       setIsAnalyzerOpen(true);
       return;
     }
-    /* 2. Prompt 生成器入口（保持原逻辑） */
+    /* 2. OBS控制器入口 */
+    if (project.type === 'obs-controller') {
+      setIsOBSControllerOpen(true);
+      return;
+    }
+    /* 3. Prompt 生成器入口（保持原逻辑） */
     if (project.type === 'interactive') {
       if (project.id === 'prompt-generator') {
         window.scrollTo({ top: 0, behavior: 'instant' });
@@ -64,7 +73,7 @@ const App: React.FC = () => {
       }
       return;
     }
-    /* 3. Gemini 分享链接 */
+    /* 4. Gemini 分享链接 */
     if (project.geminiShareUrl === '#' || !project.geminiShareUrl) {
       showToast('该项目暂未开放分享');
       return;
@@ -97,6 +106,12 @@ const App: React.FC = () => {
       <VideoAnalyzer
         isOpen={isAnalyzerOpen}
         onClose={() => setIsAnalyzerOpen(false)}
+      />
+
+      {/* OBS控制器弹窗（新增） */}
+      <OBSController
+        isOpen={isOBSControllerOpen}
+        onClose={() => setIsOBSControllerOpen(false)}
       />
 
       <AnimatePresence mode="wait">

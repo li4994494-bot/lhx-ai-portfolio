@@ -12,14 +12,14 @@ export const projects: Project[] = [
     type: 'video-analyzer'
   },
   {
-    id: '2',
-    name: 'other',
-    tagline: '视频丢帧检测',
-    coverImage: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=800&h=600',
-    promptText: 'Future interactive app prompt...',
+    id: 'obs-controller',
+    name: 'OBS Controller',
+    tagline: '智能录制助手。自动化控制OBS切换分辨率和帧率，批量录制不同规格的视频内容。',
+    coverImage: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&q=80&w=800&h=600',
+    promptText: 'OBS automation tool for recording videos with different resolutions and frame rates...',
     githubUrl: '#',
     geminiShareUrl: '#',
-    type: 'static'
+    type: 'obs-controller'
   },
   {
     id: '3',

@@ -7,7 +7,7 @@ export interface Project {
   githubUrl: string;
   geminiShareUrl: string;
   demoUrl?: string;
-  type: 'static' | 'interactive';
+  type: 'static' | 'interactive' | 'video-analyzer' | 'obs-controller';
 }
 
 
